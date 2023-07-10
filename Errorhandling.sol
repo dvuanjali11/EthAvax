@@ -6,20 +6,19 @@ contract ErrorHandling {
     // uint public num = 0;
     uint vari =10;
 
-    function testAssert(uint num) public pure{
-        assert(num!=0);
+    function test(uint num) public pure{
+        assert(num!=0 );
     }
 
-    function divide(uint _numerator , uint _denominator) public pure returns (uint){
-        if(_numerator< _denominator){
-           
-            revert("numerator should be greater than denomenator");
+    function sub(uint _a , uint _b) public pure returns (uint){
+        if(_a< _b){
+            revert("a should be greater than b");
             
         }
-        return _numerator/_denominator;
+        return _a-_b;
     }
-    function mult(uint a) public view returns (uint){
-        require(a>0,"Value of a must not be zero.");
-        return a*vari;
+    function mult(uint _c) public view returns (uint){
+        require(_c>0,"Value of a must not be zero.");
+        return _c*vari;
     }
 }
